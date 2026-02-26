@@ -9,11 +9,11 @@
     <form action="#" method="post">
         <fieldset>
             <legend>기본 정보</legend><br>
-            <label>아이디 : </label> <input type="text" minlength="4" maxlength="12"><br>
+            <label>아이디 : </label> <input type="text" minlength="4" maxlength="12" name="id"><br>
             <br>
-            <label>비밀번호 : </label> <input type="password"><br>
+            <label>비밀번호 : </label> <input type="password" name="password"><br>
             <br>
-            <label>이메일 : </label> <input type="email"><br>
+            <label>이메일 : </label> <input type="email" name="email"><br>
             <br>
         </fieldset>
         <fieldset>
@@ -30,7 +30,7 @@
             <br>
            <label>관심 분야 : </label><br>
            <input type="checkbox" id="music" value="음악" name="interesting">
-           <label for="musin">음악</label>
+           <label for="music">음악</label>
            <input type="checkbox" id="movie" value="영화" name="interesting">
            <label for="movie">영화</label>
            <input type="checkbox" id="reading" value="독서" name="interesting">
@@ -45,11 +45,11 @@
             <label>자기소개 : </label><br>
             <textarea></textarea><br>
             <br>
-            <label>프로필 사진 : </label> <input type="file" value="파일 선택"><br>
+            <label>프로필 사진 : </label> <input type="file" value="파일 선택" name="file"><br>
             <br>
         </fieldset>
-    </form>
-    <br>
+        <br>
         <input type="submit" value="가입하기"> <input type="reset" value="다시 작성"><br>
+    </form>
 </body>
 </html>
