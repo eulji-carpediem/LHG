@@ -39,7 +39,6 @@
         }
         .nav {
             width: 200px;
-            display: flex;
             flex-direction: column;
             border: 1px solid gray;
             background: #f0f4f8;
@@ -47,11 +46,13 @@
         }
         .aside {
             width: 200px;
-            display: flex;
             flex-direction: column;
             border: 1px solid gray;
             background: #f0f4f8;
             margin: 10px;
+        }
+        .nav1 , .aside1 {
+            padding: 5px;
         }
 
     </style>
@@ -75,8 +76,8 @@
             <div class="center">Hint. 가운데 영역은 flex: 1로 남는 공간을 차지합니다.</div>
         </main>
         <aside class="aside">
-            <h3>사이드바(Aside)</h3>
-            <p>공지/광고/프로필 등</p>
+            <h3 class="aside1">사이드바(Aside)</h3>
+            <p class="'aside1">공지/광고/프로필 등</p>
         </aside>
         
     </div>
