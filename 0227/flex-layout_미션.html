@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        header , footer {
+            width: 100%;
+            height: 30px;
+            background: #36393c;
+            color: white;
+            padding: 10px;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        .main {
+            flex: 1;
+            padding: 30px;
+            border: 1px solid gray;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .box {
+            border: 1px dashed #adc6ff;
+            background-color: #f0f5ff;
+            padding: 15px;
+            margin: 20px;
+        }
+        .nav {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid gray;
+            background: #f0f4f8;
+            margin: 10px;
+        }
+        .aside {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid gray;
+            background: #f0f4f8;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+             머리부(Header)
+    </header>
+    <div class="container">
+        <nav class="nav">
+            <h3 class="nav1">네비게이션(Nav)</h3>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+        <main class="main">
+            <h1>메인 콘텐츠(Main)</h1>
+            <div class="box">양옆은 고정폭, 가운데는 가변폭!</div>
+            <div class="center">Hint. 가운데 영역은 flex: 1로 남는 공간을 차지합니다.</div>
+        </main>
+        <aside class="aside">
+            <h3>사이드바(Aside)</h3>
+            <p>공지/광고/프로필 등</p>
+        </aside>
+        
+    </div>
+    <footer>
+         바닥부(Footer)
+    </footer>
+</body>
+</html>
