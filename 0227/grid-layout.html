@@ -28,6 +28,7 @@
 
         .container {
             display: grid;
+            height: 100vh;
             grid-template-columns: 200px auto 200px;
             grid-template-rows: 60px auto 60px;
             grid-template-areas:
@@ -68,6 +69,12 @@
 
         pre {
             display: inline-block;
+        }
+
+        @media(max-width : 480px) {
+            .container {
+                height: 100vh;
+            }
         }
     </style>
 </head>
