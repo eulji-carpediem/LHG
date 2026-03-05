@@ -76,8 +76,8 @@ function Person(name, age) {
         // console.log는 단순히 출력용이기 때문에 name 변수에 할당받은 값을 바로 출력했지만
         // return은 반환을 하기 위해서 값을 받아와야 하기 때문에 this.name 과 같은 형태로 사용해야 함
         return console.log(`안녕하세요, 제 이름은 ${this.name} 이고 나이는 ${this.age}세입니다.`);
-    }
-}
+    };
+};
 
 
 const person = new Person("홍길동", 20);
@@ -117,15 +117,16 @@ console.log(user);
 // 위의 예제에서 자기 자신의 프로퍼티와 상속된 프로퍼티를 구분하세요.
 
 const car = {
-    brand: 'chanel'
+    brand: 'genesis'
 };
 const fireCar = {
-    color: 'white'
+    color: 'black'
 }
-Object.setPrototypeOf(fireCar, car);
+Object.setPrototypeOf(fireCar, car);    // Object.setPrototypeOf(객체, 부모객체) 길어서
+                                        // 어려워도 외우는게 좋을 것 같음.
 
 for(let proto in fireCar) {
-    let own = fireCar.hasOwnProperty(proto);
+    let own = fireCar.hasOwnProperty(proto);    //마찬가지로 외우는걸로
     if(own) {
         console.log(`자기 자신의 프로퍼티: ${proto}`);
     } else {
