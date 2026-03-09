@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {box-sizing: border-box;}
+        body {
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .text {
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+            margin: 5px;
+            padding-left: 10px;
+        }
+        li {
+            margin: 10px;
+        }
+        button {
+            margin: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="text" id="text1">첫 번째 문단입니다.</div>
+    <div class="text" id="text2">두 번째 문단입니다.</div>
+    <div class="text" id="text3">세 번째 문단입니다.</div>
+    <ul id="list">
+        <li>첫 번째 목록</li>
+        <li>두 번째 목록</li>
+        <li>세 번째 목록</li>
+        <li>네 번째 목록</li>
+    </ul>
+    <button onclick="allTextChange();">모든 문단 선택</button>
+    <button onclick="allListChange();">모든 목록 선택</button>
+    <button onclick="firstTextChange();">첫번째 문단만 선택</button>
+
+    <script>
+        function allTextChange() {
+            const $text = document.getElementsByClassName('text');
+            for(var i = 0; i < $text.length; i++) {
+                $text[i].innerText = "선택된 문단" + (i + 1);
+                $text[i].style.backgroundColor = "#ffeecc";
+            }
+        }
+        function allListChange() {
+            const $list = document.querySelectorAll('#list > li');
+            $list.forEach((li, idx) => {
+                li.innerText = "새로운 목록 항목" + (idx + 1);
+                li.style.color = "#007bff";
+                li.style.fontWeight = "bold";
+            })
+        }
+        function firstTextChange() {
+            const $firstText = document.querySelector("#text1");
+            $firstText.innerText = "첫 번째 문단만 선택되었습니다!";
+            $firstText.style.backgroundColor = "#ccffcc";
+
+        }
+    </script>
+</body>
+</html>

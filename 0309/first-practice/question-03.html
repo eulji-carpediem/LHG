@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {box-sizing: border-box;}
+        body {
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .box {
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            border: 2px solid lightgray;
+            background-color: ghostwhite;
+            border-radius: 3px;
+            margin: 5px;
+            padding-left: 10px;
+        }
+        .item {
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            border-left: 3px solid blue;
+            background-color: gainsboro;
+            margin-top: 5px;
+        }
+        #box3 {
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            border: 2px solid rgb(255, 230, 0);
+            background-color: rgb(255, 255, 222);
+            border-radius: 3px;
+            margin: 5px;
+            padding-left: 10px;
+        }
+        p {
+            width: 400px;
+            background-color: rgb(255, 255, 222);
+        }
+        button {
+            margin: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1">첫 번째 박스</div>
+    <div class="box" id="box2">두 번째 박스</div>
+    <div class="box highlight" id="box3">세 번째 박스 (하이라이트)</div>
+    <div class="item" id="item1">첫 번째 아이템</div>
+    <div class="item" id="item2">두 번째 아이템</div>
+    <div class="item" id="item3">세 번째 아이템</div>
+    <div class="item" id="item4">네 번째 아이템</div>
+    <p class="highlight">하이라이트된 문단입니다.</p>
+    <button onclick="allBoxChange();">모든 박스 선택</button>
+    <button onclick="allItemChange();">모든 아이템 선택</button>
+    <button onclick="HighlightChange();">하이라이트 요소들 선택</button>
+
+    <script>
+        function allBoxChange() {
+            const $box = document.getElementsByClassName('box');
+            for(var i = 0; i < $box.length; i++) {
+                $box[i].innerText = "선택된 박스" + (i + 1);
+                $box[i].style.backgroundColor = "#ffcccc";
+            }
+        }
+        function allItemChange() {
+            const $item = document.getElementsByClassName('item');
+            for(var i = 0; i < $item.length; i++) {
+                $item[i].innerText = "새로운 아이템" + (i + 1);
+                $item[i].style.backgroundColor = "#ccffcc";
+                $item[i].style.borderLeftColor = "#28a745";
+            }
+        }
+        function HighlightChange() {
+            const $highlight = document.getElementsByClassName('highlight');
+                for(var i = 0; i < $highlight.length; i++) {
+                $highlight[i].innerText = $highlight[i].innerText + " (수정됨)";
+                $highlight[i].style.backgroundColor = "#ffdddd";
+                $highlight[i].style.fontWeight = "bold";
+            }
+        }
+    </script>
+</body>
+</html>

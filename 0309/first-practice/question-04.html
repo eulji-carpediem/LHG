@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .container {
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .box {
+            padding: 10px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+
+        .special {
+            background-color: #fff3cd;
+            border-color: #ffeaa7;
+        }
+
+        ul li {
+            padding: 5px;
+            margin: 3px 0;
+        }
+
+        button {
+            margin: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="title">제목 영역</h2>
+        <p class="box">첫 번째 박스</p>
+        <p class="box special">두 번째 박스 (특별)</p>
+        <p class="box">세 번째 박스</p>
+        </p>
+
+        <div class="container">
+            <ul>
+                <li>첫 번째 목록</li>
+                <li class="special">두 번째 목록 (특별)</li>
+                <li>세 번째 목록</li>
+                <li>네 번째 목록</li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <input type="text" placeholder="텍스트 입력" />
+            <input type="email" placeholder="이메일 입력" />
+            <button type="button">일반 버튼</button>
+        </div>
+
+        <button onclick="selectById()">ID로 선택</button>
+        <button onclick="selectByClass()">클래스로 선택</button>
+        <button onclick="selectByTag()">태그로 선택</button>
+        <button onclick="selectSpecial()">특별 클래스 선택</button>
+        <button onclick="selectFirst()">첫 번째만 선택</button>
+        <button onclick="selectAll()">모든 박스 선택</button>
+        <button onclick="selectComplex()">복합 선택자</button>
+        <button onclick="selectInput()">입력 필드 선택</button>
+    </div>
+
+    <script>
+        function selectById() {
+            $id = document.getElementById('title');
+            $id.innerText = "ID로 선택된 제목!";
+            $id.style.color = "red";
+        }
+        function selectByClass() {
+            $class = document.querySelector('.box');
+            $class.innerText = "클래스로 선택된 첫 번째 박스!";
+            $class.style.backgroundColor = "#d4edda";
+        }
+        function selectByTag() {
+            $tag = document.querySelector('p');
+            $tag.innerText = "태그로 선택된 첫 번째 p 요소!";
+            $tag.style.border = "2px solid #007bff";
+        }
+        function selectSpecial() {
+            const $special = document.getElementsByClassName('special');
+            for (var i = 0; i < $special.length; i++) {
+                $special[i].innerText = "특별 클래스 " + (i + 1) + " 번!";
+                $special[i].style.color = "#856404";
+                $special[i].style.fontWeight = "bold";
+            }
+        }
+        function selectFirst() {
+            $first = document.querySelector('.box');
+            $first.innerText = "첫 번째 컨테이너의 첫 번째 박스!";
+            $first.style.backgroundColor = "#cce5ff";
+        }
+        function selectAll() {
+            $all = document.querySelectorAll('.box');
+            for (var i = 0; i < $all.length; i++) {
+                $all[i].innerText = "모든 박스 " + (i + 1) + " 번 변경!";
+                $all[i].style.backgroundColor = "#ffccff";
+            }
+        }
+        function selectComplex() {
+            const $complex = document.querySelectorAll(".container p.box:not(.special)");
+            for (var i = 0; i < $complex.length; i++) {
+                $complex[i].innerText = "복합 선택자로 선택됨!";
+                $complex[i].style.backgroundColor = "#ccffcc";
+                $complex[i].style.border = "2px dashed #28a745";
+            }
+        }
+        function selectInput() {
+            const $input1 = document.querySelector('input[type="text"]');
+            const $input2 = document.querySelector('input[type="email"]');
+
+            $input1.value = "querySelector로 설정된 값";
+            $input1.style.backgroundColor = "#fff3cd";
+            $input2.value = "test@example.com";
+            $input2.style.backgroundColor = "#d1ecf1";
+        }
+    </script>
+</body>
+
+</html>
