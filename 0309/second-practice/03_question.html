@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>insertAdjacentHTML 방향</title>
+    <style>
+      #target {
+        border: 2px solid blue;
+        padding: 10px;
+        margin: 10px;
+      }
+      .beforebegin {
+        background: red;
+        color: white;
+      }
+      .afterend {
+        background: green;
+        color: white;
+      }
+      .afterbegin {
+        background: orange;
+      }
+      .beforeend {
+        background: purple;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="target">
+      <p>기존 내용</p>
+    </div>
+
+    <script>
+      const target = document.getElementById("target");
+
+      target.insertAdjacentHTML(
+        "beforebegin",
+        '<div class="beforebegin">beforebegin - 앞 형제</div>'
+      );
+      target.insertAdjacentHTML(
+        "afterbegin",
+        '<div class="afterbegin">afterbegin - 첫 자식</div>'
+      );
+      target.insertAdjacentHTML(
+        "beforeend",
+        '<div class="beforeend">beforeend - 마지막 자식</div>'
+      );
+      target.insertAdjacentHTML(
+        "afterend",
+        '<div class="afterend">afterend - 뒤 형제</div>'
+      );
+    </script>
+  </body>
+</html>

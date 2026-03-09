@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .container {
+        border: 2px solid red;
+        padding: 15px;
+        margin: 10px;
+      }
+      .item {
+        background: lightcoral;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid darkred;
+      }
+    </style>
+</head>
+<body>
+    <body>
+    <div id="container" class="container">
+      <div class="item" id="item1">삭제할 자식 1</div>
+      <div class="item" id="item2">삭제할 자식 2</div>
+      <div class="item" id="item3">삭제할 자식 3</div>
+      <div class="item" id="item4">삭제할 자식 4</div>
+    </div>
+
+    <button onclick="removeFirstChild()">첫 번째 자식 삭제</button>
+    <button onclick="removeSecondChild()">두 번째 자식 삭제</button>
+    <button onclick="removeThirdChild()">세 번째 자식 삭제</button>
+    <button onclick="removeLastChild()">마지막 자식 삭제</button>
+
+    <script>
+        function removeFirstChild() {
+            const $container = document.getElementById('container');
+            const $item1 = document.getElementById('item1');
+            $container.removeChild($item1);
+        }
+        function removeSecondChild() {
+            const $container = document.getElementById('container');
+            const $item2 = document.getElementById('item2');
+            $container.removeChild($item2);
+        }
+        function removeThirdChild() {
+            const $container = document.getElementById('container');
+            const $item3 = document.getElementById('item3');
+            $container.removeChild($item3);
+        }
+        function removeLastChild() {
+            const $container = document.getElementById('container');
+            const $item4 = document.getElementById('item4');
+            $container.removeChild($item4);
+        }
+    </script>
+</body>
+</html>

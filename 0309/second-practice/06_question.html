@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .item {
+        background: lightblue;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid blue;
+      }
+      .container {
+        border: 2px solid black;
+        padding: 15px;
+        margin: 10px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="item" id="item1">삭제할 항목 1</div>
+      <div class="item" id="item2">삭제할 항목 2</div>
+      <div class="item" id="item3">삭제할 항목 3</div>
+      <div class="item" id="item4">삭제할 항목 4</div>
+    </div>
+
+    <button onclick="removeFirst()">첫 번째 삭제</button>
+    <button onclick="removeSecond()">두 번째 삭제</button>
+    <button onclick="removeThird()">세 번째 삭제</button>
+    <button onclick="removeLast()">마지막 삭제</button>
+
+    <script>
+        function removeFirst() {
+            const $item1 = document.getElementById('item1');
+            $item1.remove();
+        }
+        function removeSecond() {
+            const $item2 = document.getElementById('item2');
+            $item2.remove();
+        }
+        function removeThird() {
+            const $item3 = document.getElementById('item3');
+            $item3.remove();
+        }
+        function removeLast() {
+            const $item4 = document.getElementById('item4');
+            $item4.remove();
+        }
+    </script>
+</body>
+</html>

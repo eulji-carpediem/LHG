@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .original {
+        background: lightblue;
+        padding: 10px;
+        margin: 5px;
+        border: 2px solid blue;
+      }
+      .clone {
+        background: lightgreen;
+        padding: 10px;
+        margin: 5px;
+        border: 2px solid green;
+      }
+      .container {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div id="original" class="original">
+        <h3>원본 요소</h3>
+        <p>자식 요소 1</p>
+        <p>자식 요소 2</p>
+      </div>
+    </div>
+
+    <div id="result" class="container">
+      <h3>복제된 요소들이 여기 추가됩니다</h3>
+    </div>
+
+    <button onclick="falsyClone()">파라미터 : false</button>
+    <button onclick="truthyClone()">파라미터 : true</button>
+    <button onclick="deleteClones()">복제본 제거</button>
+
+    <script>
+        function falsyClone() {
+            const $original = document.getElementById('original');
+            const $result = document.getElementById('result');
+
+            const clone = $original.cloneNode(false);
+            clone.className = "clone";
+            clone.textContent = "파라미터 : false";
+            $result.appendChild(clone);
+        }
+        function truthyClone() {
+            const $original = document.getElementById('original');
+            const $result = document.getElementById('result');
+
+            const clone1 = $original.cloneNode(true);
+            clone1.className = "clone";
+            $result.appendChild(clone1);
+        }
+        function deleteClones() {
+            const $result = document.getElementById('result');
+            const $clones = $result.querySelectorAll('.clone');
+            $clones.forEach((clone)=>clone.remove());
+        }
+    </script>
+</body>
+</html>

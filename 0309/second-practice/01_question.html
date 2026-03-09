@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>createElement와 createTextNode 예제</title>
+  </head>
+  <body>
+    <div id="container">
+      <h2>기존 내용</h2>
+    </div>
+
+    <button onclick="createElements()">요소 생성하기</button>
+
+    <script>
+      function createElements() {
+        const $container = document.getElementById("container");
+
+        const ptag = document.createElement("p");
+        const span = document.createElement("span");
+
+        const text1 = document.createTextNode("안녕하세요! createElement로 만든 요소입니다.");
+        const text3 = document.createTextNode("이 텍스트는 span입니다.");
+
+        ptag.appendChild(text1);
+        span.appendChild(text3);
+
+        container.appendChild(ptag);
+        container.appendChild(span);
+      }
+    </script>
+  </body>
+</html>

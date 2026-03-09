@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            border: 2px solid blue;
+        }
+        .box {
+            background: red;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .new {
+            background: green;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p class="box" id="box1">교체될 자식 1</p>
+        <p class="box" id="box2">교체될 자식 2</p>
+        <p class="box" id="box3">교체될 자식 3</p>
+    </div>
+
+    <button onclick="replaceChildFirst()">첫 번째 교체</button>
+    <button onclick="replaceChildSecond()">두 번째 교체</button>
+    <button onclick="replaceChildThird()">세 번째 교체</button>
+
+    <script>
+        function replaceChildFirst() {
+            const $container = document.getElementById('container');
+            const $first = document.getElementById('box1');
+            const new1 = document.createElement('p');
+            new1.textContent = "새로운 첫 번째 자식";
+            new1.className = "new";
+            $container.replaceChild(new1, $first);
+        }
+        function replaceChildSecond() {
+            const $container = document.getElementById('container');
+            const $second = document.getElementById('box2');
+            const new2 = document.createElement('span');
+            new2.textContent = "새로운 두 번째 자식";
+            new2.className = "new";
+            $container.replaceChild(new2, $second);
+        }
+        function replaceChildThird() {
+            const $container = document.getElementById('container');
+            const $third = document.getElementById('box3');
+            const new3 = document.createElement('div');
+            new3.innerHTML = "<strong>새로운 세 번째 자식</strong>";
+            new3.style.fontSize = "18px";
+            new3.className = "new";
+            $container.replaceChild(new3, $third);
+        }
+    </script>
+</body>
+</html>

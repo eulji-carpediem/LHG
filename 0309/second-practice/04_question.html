@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background: red;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .new {
+            background: green;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="box" id="box1">교체될 요소 1</p>
+        <p class="box" id="box2">교체될 요소 2</p>
+        <p class="box" id="box3">교체될 요소 3</p>
+    </div>
+
+    <button onclick="replaceWithElement()">요소로 교체</button>
+    <button onclick="replaceWithText()">텍스트로 교체</button>
+    <button onclick="replaceWithHTML()">HTML로 교체</button>
+
+    <script>
+        function replaceWithElement() {
+            const $box1 = document.getElementById('box1');
+            const new1 = document.createElement('div');
+            new1.textContent = "새로운 요소로 교체됨";
+            new1.className = "new";
+
+            $box1.replaceWith(new1);
+        }
+        function replaceWithText() {
+            const $box2 = document.getElementById('box2');
+            const new2 = document.createElement('p');
+            new2.innerText = "단순 텍스트로 교체됨";
+
+            $box2.replaceWith(new2);
+        }
+        function replaceWithHTML() {
+            const $box3 = document.getElementById('box3');
+            const new3 = document.createElement('div');
+            new3.innerHTML = "<strong>HTML 요소로 교체됨</strong>";
+            new3.className = "new";
+
+            $box3.replaceWith(new3);
+        }
+    </script>
+</body>
+
+</html>
