@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {box-sizing: border-box;}
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .input, select {
+            width: 500px;
+            height: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #textBox {
+            width: 500px;
+            height: 90px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .gender {
+            width: 13px;
+            height: 13px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        span {
+            font-size: 14px;
+            color: gray;
+        }
+        #agree {
+            margin-right: 10px;
+        }
+        #submit {
+            width: 80px;
+            height: 40px;
+            border: none;
+            background-color: rgb(81, 154, 255);
+            color: white;
+        }
+        #submit:hover {
+            background-color: rgb(64, 120, 199);
+        }
+        .focused {
+            background-color: rgb(168, 227, 250);
+            outline: 2px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <h1>사용자 입력 양식 이벤트 연습하기</h1>
+    <form name="practice">
+        <label for="userName">이름</label><br>
+        <input type="text" name="userName" class="input" id="userName" placeholder="이름을 입력하세요" required>
+        <br>
+        <label for="userEmail">이메일</label><br>
+        <input type="email" name="userEnail" class="input" id="userEmail" placeholder="example@domain.com">
+        <br>
+        <label>성별</label><br>
+        <input type="radio" name="gender" class="gender" value="m" id="male"> <label for="male">남자</label>
+        <input type="radio" name="gender" class="gender" value="f" id="female"> <label for="female">여자</label>
+        <br><br>
+        <label for="date">참여 일자 선택</label><br>
+        <select id="date" name="date">
+            <option value="none" selected hidden>-- 날짜 선택 --</option>
+            <option value="mon">2026.03.16(월)</option>
+            <option value="tue">2026.03.17(화)</option>
+            <option value="wed">2026.03.18(수)</option>
+            <option value="thu">2026.03.19(목)</option>
+            <option value="fri">2026.03.20(금)</option>
+            <option value="sat">2026.03.21(토)</option>
+            <option value="sun">2026.03.22(일)</option>
+        </select>
+        <br><br>
+        <label for="textBox">요청 사항</label><br>
+        <textarea name="textBox" id="textBox" style="resize: none;" 
+        maxlength="500" placeholder="요청 사항을 입력하세요"></textarea><br>
+        <span>0</span>/500자
+        <br><br>
+        <input type="checkbox" name="agree" id="agree"><label for="agree" required>개인정보 수집에 동의합니다.</label>
+        <br><br>
+        <input type="submit" value="신청하기" id="submit">
+    </form>
+
+    <script>
+        const $form = document.forms.practice;
+        $form.addEventListener('focusin', (e) => e.target.classList.add('focused'));
+        $form.addEventListener('focusout', (e) => e.target.classList.remove('focused'));
+
+    </script>
+</body>
+</html>
