@@ -140,6 +140,7 @@
         $submit.addEventListener('click', (e) => {
             if ($date.value === "none") {
                 alert("참여 일자를 선택해주세요");
+                e.preventDefault();
             }
         })
         $agree.addEventListener('click', (e) => {
