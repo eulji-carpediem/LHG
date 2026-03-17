@@ -1,0 +1,270 @@
+/* =========================
+   기본 초기화
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    font: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+body {
+    font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background-color: #f3f5f8;
+    color: #1f2937;
+}
+
+/* =========================
+   예시 페이지 영역
+========================= */
+.page {
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.page-description {
+    font-size: 16px;
+    color: #5b6472;
+    margin-bottom: 32px;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.open-modal-btn {
+    min-width: 180px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background-color: #21344d;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.open-modal-btn:hover {
+    background-color: #18283c;
+}
+
+/* =========================
+   공통 모달 영역
+========================= */
+
+/* 
+  모달 전체 영역
+  - 화면 전체를 덮기 위해 fixed 사용
+  - z-index를 크게 주어 다른 요소 위에 올라오게 설정
+*/
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+/* 숨김 처리 */
+.modal.hidden {
+    display: none;
+}
+
+/* 
+  반투명 배경
+  - 첨부 이미지처럼 어두운 배경 연출
+*/
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.42);
+    backdrop-filter: blur(2px);
+}
+
+/* 
+  모달 박스
+  - 첨부 이미지의 흰색 패널 느낌 반영
+  - 반응형을 위해 width: min 사용
+*/
+.modal-container {
+    position: relative;
+    width: min(820px, 100%);
+    background-color: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+    z-index: 1;
+    animation: modalFadeUp 0.25s ease;
+}
+
+/* 본문 영역 */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 260px;
+    padding: 40px 32px;
+    text-align: center;
+}
+
+/* 제목 */
+.modal-title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #2f4763;
+    margin-bottom: 14px;
+}
+
+/* 설명 문구 */
+.modal-description {
+    font-size: 28px;
+    line-height: 1.5;
+    color: #4d627c;
+    word-break: keep-all;
+}
+
+/* 버튼 영역 */
+.modal-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #d3d9e1;
+    background-color: #ffffff;
+}
+
+/* 공통 버튼 스타일 */
+.modal-btn {
+    min-height: 96px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #344b66;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 버튼 사이 구분선 */
+.modal-btn+.modal-btn {
+    border-left: 1px solid #d3d9e1;
+}
+
+.modal-btn:hover {
+    background-color: #f7f9fc;
+}
+
+/* 확인 버튼 강조 */
+.confirm-btn {
+    color: #2f4763;
+    font-weight: 700;
+}
+
+/* 
+  원버튼 모달일 때
+  - cancel 버튼 숨김
+  - 확인 버튼이 전체 폭 사용
+*/
+.modal.single .modal-footer {
+    grid-template-columns: 1fr;
+}
+
+.modal.single .cancel-btn {
+    display: none;
+}
+
+.modal.single .confirm-btn {
+    border-left: none;
+}
+
+/* =========================
+   반응형 처리
+========================= */
+@media (max-width: 768px) {
+    .modal {
+        padding: 16px;
+    }
+
+    .modal-container {
+        border-radius: 20px;
+    }
+
+    .modal-content {
+        min-height: 220px;
+        padding: 32px 20px;
+    }
+
+    .modal-title {
+        font-size: 24px;
+    }
+
+    .modal-description {
+        font-size: 18px;
+    }
+
+    .modal-btn {
+        min-height: 72px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 22px;
+    }
+
+    .page-description {
+        font-size: 14px;
+    }
+
+    .open-modal-btn {
+        width: 100%;
+    }
+
+    .modal-content {
+        min-height: 190px;
+        padding: 28px 16px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .modal-description {
+        font-size: 16px;
+    }
+
+    .modal-btn {
+        min-height: 64px;
+        font-size: 18px;
+    }
+}
+
+/* =========================
+   모달 등장 애니메이션
+========================= */
+@keyframes modalFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
